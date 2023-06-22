@@ -1,2 +1,9 @@
 pandas
 sys
+hadoop jar hadoop-streaming.jar \
+  -input input.tsv \
+  -output output \
+  -mapper "/usr/bin/python3 mapper.py" \
+  -reducer "/usr/bin/python3 reducer.py" \
+  -file mapper.py \
+  -file reducer.py
