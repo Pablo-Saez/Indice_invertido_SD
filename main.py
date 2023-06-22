@@ -5,7 +5,7 @@ def build_inverted_index(name_basics_file, title_principals_file):
     
     # Construir el índice invertido a partir de la tabla name.basics.tsv
     print("entro \n")
-    name_basics_df = pd.read_csv(name_basics_file, delimiter='\t', nrows=100)
+    name_basics_df = pd.read_csv(name_basics_file, delimiter='\t', nrows=1000)
     for _, row in name_basics_df.iterrows():
         primary_name = row['primaryName']
         known_for_titles = row['knownForTitles'].split(',') if row['knownForTitles'] != '\\N' else []
@@ -44,11 +44,19 @@ def search_name(name):
         return []
 
 # Ejemplo de búsqueda
-name = 'Fred Astaire'
-movies_participated = search_name(name)
+flag = 0
 
-print(f"Las películas en las que {name} ha participado son:")
-for movie in movies_participated:
-    print(movie)
+while flag==0:
+    opcion = str(input('Ingrese nombre a buscar: '))
+    if(opcion == 0):
+        flag=1
+    movies_participated = search_name(opcion)
+    print(f"Las películas en las que {opcion} ha participado son:")
+    for movie in movies_participated:
+        print(movie)
+    
+
+
+
 
 #print(index)
