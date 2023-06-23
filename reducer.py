@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/env python
+# -*-coding:utf-8 -*
 import sys
 
 current_actor = None
@@ -25,3 +25,4 @@ for line in sys.stdin:
 # Imprimir el resultado del último actor
 if current_actor is not None:
     print(f"{current_actor}\t{','.join(movies)}")
+

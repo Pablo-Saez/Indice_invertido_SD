@@ -1,0 +1,6 @@
+cat prueba.tsv | ./mapper.py
+
+cat prueba.tsv | ./mapper.py | sort | ./reducer.py
+
+
+ mapred streaming -files mapper.py,reducer.py -input /user/hduser/prueba.tsv -output /user/hduser/output -mapper ./mapper.py -reducer ./reducer.py
