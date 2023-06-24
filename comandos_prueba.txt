@@ -1,10 +1,11 @@
-cat prueba.tsv | ./mapper.py
+PRIMERA PRUEBA 1 SOLO ARCHIVO
+cat name.basics.v1.tsv | ./map-reducer/mapper.py
 
-cat prueba.tsv | ./mapper.py | sort | ./reducer.py
+cat name.basics.v1 | ./map-reducer/mapper.py | sort | ./map-reducer/reducer.py
+SEGUNDA PRUEBA 2 ARCHIVOS
+cat name.basics.v2.tsv title.principals.v2.tsv | ./map-reducer/mapper_titles.py 
 
-cat prueba2.tsv prueba.tsv | ./mapper_titles.py
-
-cat prueba2.tsv prueba.tsv | ./mapper_titles.py | sort  | ./reducer_titles.py
+cat name.basics.v2.tsv title.principals.v2.tsv | ./map-reducer/mapper_titles.py  | sort  | ./map-reducer/reducer_titles.py
 
  mapred streaming -files mapper_titles.py , reducer_titles.py -input /user/hduser/*.tsv -output /user/hduser/output -mapper ./mapper_titles.py -reducer ./reducer_titles.py
 
