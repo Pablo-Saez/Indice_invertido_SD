@@ -2,5 +2,10 @@ cat prueba.tsv | ./mapper.py
 
 cat prueba.tsv | ./mapper.py | sort | ./reducer.py
 
+cat prueba2.tsv prueba.tsv | ./mapper_titles.py
 
- mapred streaming -files mapper.py,reducer.py -input /user/hduser/prueba.tsv -output /user/hduser/output -mapper ./mapper.py -reducer ./reducer.py
+cat prueba2.tsv prueba.tsv | ./mapper_titles.py | sort  | ./reducer_titles.py
+
+ mapred streaming -files mapper_titles.py , reducer_titles.py -input /user/hduser/*.tsv -output /user/hduser/output -mapper ./mapper_titles.py -reducer ./reducer_titles.py
+
+ mapred streaming -files mapper_titles.py,reducer_titles.py -input /user/hduser/input/*.tsv -output /user/hduser/output -mapper ./mapper_titles.py -reducer ./reducer_titles.py

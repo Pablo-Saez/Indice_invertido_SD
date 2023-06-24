@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*-coding:utf-8 -*
 import sys
 
@@ -6,6 +6,7 @@ current_actor = None
 movies = set()
 
 for line in sys.stdin:
+    print("linea: "+ line)
     line = line.strip()
     actor_name, movie_id = line.split("\t")
 
@@ -25,4 +26,3 @@ for line in sys.stdin:
 # Imprimir el resultado del último actor
 if current_actor is not None:
     print(f"{current_actor}\t{','.join(movies)}")
-
